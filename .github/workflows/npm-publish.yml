@@ -34,10 +34,8 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm run build:lib
-
-      - run: pnpm run test:exports && pnpm run test:bundle && pnpm run test:boundary && pnpm run test:wp-singleton
-
+      # prepublishOnly runs the full quality gate (build:lib + all test:* + verify-react-binding)
+      # and produces dist/, so no separate build/test steps are needed here.
       - run: pnpm publish --no-git-checks --provenance --access public
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
