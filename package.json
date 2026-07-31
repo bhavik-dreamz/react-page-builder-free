@@ -1,6 +1,6 @@
 {
   "name": "react-page-builder-free",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Free React page builder — drag-and-drop visual editor built on Gutenberg blocks, with an SSR-safe renderer for Next.js, Remix, and Vite. Open-source, no-code page builder for React apps via onSave/onLoad hooks.",
   "private": false,
   "homepage": "https://react-block-builder.vercel.app/",

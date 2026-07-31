@@ -1,5 +1,22 @@
 # Changelog
 
+## 2.0.1
+
+Docs/metadata only — no runtime changes.
+
+### Added
+
+- `LICENSE` file (MIT). The repo declared `"license": "MIT"` in `package.json` but shipped no
+  license text, so GitHub showed no license and the README badge linked to a 404.
+
+### Fixed
+
+- README license badge now links to the LICENSE file instead of a broken relative path.
+- Removed the npm downloads badge — npm has no download history for a freshly published
+  package, so shields.io rendered `package not found or too new`. Re-enable once
+  `api.npmjs.org/downloads/point/last-month/react-page-builder-free` returns data.
+- Added node-engine and PRs-welcome badges.
+
 ## 2.0.0
 
 ### Changed — BREAKING: package renamed
