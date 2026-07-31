@@ -3,7 +3,7 @@ import React from 'react';
 /**
  * Lightweight, self-contained loading placeholder shaped like the editor
  * (top toolbar + canvas + right sidebar). Uses inline styles and its own
- * keyframes so it renders correctly even before `gutenberg-block-kit/styles`
+ * keyframes so it renders correctly even before `react-page-builder-free/styles`
  * has loaded, and is safe to server-render.
  */
 

@@ -6,7 +6,7 @@
  * and merged into the registry. This whole file lives in the demo, not in
  * `dist` — copy/adapt it in your own app.
  */
-import { parsePageParams, pageParamsToRaw } from 'gutenberg-block-kit/editor';
+import { parsePageParams, pageParamsToRaw } from 'react-page-builder-free/editor';
 import { listPages } from './api.js';
 
 /** Action definitions added on top of the built-in OPEN_URL. */

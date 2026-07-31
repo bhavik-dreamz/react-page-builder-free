@@ -17,7 +17,7 @@ let editorModulePromise = null;
  * times. Call it on user intent — e.g. hovering/focusing a link to your editor
  * route — to warm the cache before the editor mounts:
  *
- *   import { preloadBlockEditor } from 'gutenberg-block-kit/editor-client';
+ *   import { preloadBlockEditor } from 'react-page-builder-free/editor-client';
  *   <Link href="/admin/editor" onMouseEnter={() => preloadBlockEditor()} />
  *
  * Returns the module promise (or `null` on the server).
@@ -33,11 +33,11 @@ export function preloadBlockEditor() {
 /**
  * SSR-safe shell — server-renders a placeholder and loads the BlockEditor only
  * in the browser. Use this in React Router / Remix / Next.js route modules
- * instead of importing `gutenberg-block-kit/editor` at the top level.
+ * instead of importing `react-page-builder-free/editor` at the top level.
  *
  * The default `fallback` is an editor-shaped skeleton; pass your own to
  * override (pass `null` for nothing). Load editor CSS on the client too:
- *   import 'gutenberg-block-kit/styles';
+ *   import 'react-page-builder-free/styles';
  */
 export function ClientBlockEditor({ fallback, ...props }) {
   const [BlockEditor, setBlockEditor] = useState(null);

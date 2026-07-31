@@ -1,10 +1,10 @@
-# CLAUDE.md — gutenberg-block-kit
+# CLAUDE.md — react-page-builder-free
 
 Project overview + rules. Auto-loaded every session, so you don't re-explain.
 
 ## What this is
 
-**npm library** (`gutenberg-block-kit`, v1.1.0): Gutenberg block editor + SSR-safe renderer for React. Consumed in Next.js / Remix / Vite via `onSave`/`onLoad` hooks. **Not** a single-page app. Demo app lives in `examples/demo/` only.
+**npm library** (`react-page-builder-free`, v1.1.0): Gutenberg block editor + SSR-safe renderer for React. Consumed in Next.js / Remix / Vite via `onSave`/`onLoad` hooks. **Not** a single-page app. Demo app lives in `examples/demo/` only.
 
 JavaScript (JSX), not TypeScript, unless explicitly asked. pnpm. Node >= 22. Vite 8.
 

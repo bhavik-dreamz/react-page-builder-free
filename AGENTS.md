@@ -1,4 +1,4 @@
-# AI Agent Instructions — gutenberg-block-kit
+# AI Agent Instructions — react-page-builder-free
 
 Read **`docs/FULL_GUIDE.md`** for the complete handbook (npm publish, Vercel, Next.js, Remix, Vite, architecture).
 
@@ -11,7 +11,7 @@ Demo app: `https://react-block-builder.vercel.app/` only.
 
 1. **`src/`** = published library. **`https://react-block-builder.vercel.app/`** = persistence, Supabase, FrontendPage — never ship in `dist` exports.
 2. **`react` / `react-dom`** → `peerDependencies` only (never `dependencies`).
-3. **Editor** = client-only (`gutenberg-block-kit/editor`). **Renderer** = SSR-safe (`gutenberg-block-kit/renderer`).
+3. **Editor** = client-only (`react-page-builder-free/editor`). **Renderer** = SSR-safe (`react-page-builder-free/renderer`).
 4. No top-level `window`/`document`/`localStorage` in `src/` (guard with `typeof window`).
 5. No `next/*`, `@remix-run/*`, or framework imports in `src/`.
 6. Do not import `@wordpress/block-editor` from `renderer.jsx`.
@@ -22,11 +22,11 @@ Demo app: `https://react-block-builder.vercel.app/` only.
 
 | Import | Use |
 |--------|-----|
-| `gutenberg-block-kit/editor` | `BlockEditor`, `initBlocks`, `EditorProvider`, `useEditor` |
-| `gutenberg-block-kit/editor-client` | `ClientBlockEditor` (SSR-safe loader for editor) |
-| `gutenberg-block-kit/renderer` | `BlockRenderer` (server-safe) |
-| `gutenberg-block-kit/styles` | Editor CSS |
-| `gutenberg-block-kit/bootstrap` | Optional (editor entry already loads it) |
+| `react-page-builder-free/editor` | `BlockEditor`, `initBlocks`, `EditorProvider`, `useEditor` |
+| `react-page-builder-free/editor-client` | `ClientBlockEditor` (SSR-safe loader for editor) |
+| `react-page-builder-free/renderer` | `BlockRenderer` (server-safe) |
+| `react-page-builder-free/styles` | Editor CSS |
+| `react-page-builder-free/bootstrap` | Optional (editor entry already loads it) |
 
 `BlockRenderer` is **not** on the root export.
 

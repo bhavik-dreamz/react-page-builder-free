@@ -1,6 +1,19 @@
-# gutenberg-block-kit
+# React Page Builder Free — drag-and-drop page builder for React
 
-Gutenberg-powered **block editor** and **SSR-safe renderer** for React. Use in **Next.js (App Router)**, **Remix**, or **Vite** — no WordPress install required.
+[![npm version](https://img.shields.io/npm/v/react-page-builder-free.svg)](https://www.npmjs.com/package/react-page-builder-free)
+[![npm downloads](https://img.shields.io/npm/dm/react-page-builder-free.svg)](https://www.npmjs.com/package/react-page-builder-free)
+[![license](https://img.shields.io/npm/l/react-page-builder-free.svg)](LICENSE)
+
+**`react-page-builder-free`** is a free, open-source **React page builder**: a drag-and-drop visual editor built on Gutenberg blocks, plus an **SSR-safe renderer** for the public site. Drop it into **Next.js (App Router)**, **Remix**, or **Vite** — **no WordPress install required**.
+
+Build landing pages, marketing pages, and CMS-style content in React with a WYSIWYG block editor, then render the saved blocks to HTML on the server.
+
+- 🧱 **Gutenberg block editor** in any React app — no WordPress, no PHP
+- 🖱️ **Drag-and-drop** blocks, inline rich text, device preview widths
+- ⚡ **SSR / RSC safe renderer** — `react-page-builder-free/renderer` never touches the DOM
+- 🔌 **Bring your own persistence** — `onSave` / `onLoad` props, any DB or API
+- 🎨 **Custom blocks & templates** from your own app
+- 📦 **Free and MIT licensed**
 
 **[Live demo](https://react-block-builder.vercel.app/)** · Demo source: [`https://react-block-builder.vercel.app/`](https://react-block-builder.vercel.app/)
 
@@ -12,7 +25,7 @@ Gutenberg-powered **block editor** and **SSR-safe renderer** for React. Use in *
 ## Install
 
 ```bash
-npm install gutenberg-block-kit react react-dom
+npm install react-page-builder-free react react-dom
 ```
 
 **Peer dependencies:** `react` and `react-dom` (`^18` or `^19`). Your app must provide a single React instance ([dedupe](#vite--cra) in Vite).
@@ -23,15 +36,15 @@ npm install gutenberg-block-kit react react-dom
 
 | Import path | Use |
 |-------------|-----|
-| `gutenberg-block-kit` / `gutenberg-block-kit/editor` | `BlockEditor` (client only) |
-| `gutenberg-block-kit/renderer` | `BlockRenderer` (SSR / RSC safe) |
-| `gutenberg-block-kit/styles` | Editor CSS (required for the editor UI) |
-| `gutenberg-block-kit/bootstrap` | Optional; editor entry already runs bootstrap |
+| `react-page-builder-free` / `react-page-builder-free/editor` | `BlockEditor` (client only) |
+| `react-page-builder-free/renderer` | `BlockRenderer` (SSR / RSC safe) |
+| `react-page-builder-free/styles` | Editor CSS (required for the editor UI) |
+| `react-page-builder-free/bootstrap` | Optional; editor entry already runs bootstrap |
 
 ```js
-import { BlockEditor, initBlocks } from 'gutenberg-block-kit/editor';
-import { BlockRenderer, BLOCK_LIBRARY_STYLES } from 'gutenberg-block-kit/renderer';
-import 'gutenberg-block-kit/styles';
+import { BlockEditor, initBlocks } from 'react-page-builder-free/editor';
+import { BlockRenderer, BLOCK_LIBRARY_STYLES } from 'react-page-builder-free/renderer';
+import 'react-page-builder-free/styles';
 ```
 
 ---
@@ -41,8 +54,8 @@ import 'gutenberg-block-kit/styles';
 **1. Editor (client only)**
 
 ```jsx
-import 'gutenberg-block-kit/styles';
-import { BlockEditor } from 'gutenberg-block-kit/editor';
+import 'react-page-builder-free/styles';
+import { BlockEditor } from 'react-page-builder-free/editor';
 
 export default function CMSPage() {
   return (
@@ -68,7 +81,7 @@ export default function CMSPage() {
 **2. Public page (server or client)**
 
 ```jsx
-import { BlockRenderer } from 'gutenberg-block-kit/renderer';
+import { BlockRenderer } from 'react-page-builder-free/renderer';
 import '@wordpress/block-library/build-style/style.css';
 
 export function PublicPage({ html }) {
@@ -85,7 +98,7 @@ export function PublicPage({ html }) {
 
 | Surface | Import |
 |---------|--------|
-| **Editor** | `import 'gutenberg-block-kit/styles'` |
+| **Editor** | `import 'react-page-builder-free/styles'` |
 | **Rendered HTML** | `import '@wordpress/block-library/build-style/style.css'` (or `BLOCK_LIBRARY_STYLES` constant from the renderer entry) |
 
 Do **not** import editor styles on public-only routes — they are large (~500KB).
@@ -100,8 +113,8 @@ Do **not** import editor styles on public-only routes — they are large (~500KB
 // app/admin/editor/BlockEditorClient.jsx
 'use client';
 
-import 'gutenberg-block-kit/styles';
-import { BlockEditor } from 'gutenberg-block-kit/editor';
+import 'react-page-builder-free/styles';
+import { BlockEditor } from 'react-page-builder-free/editor';
 
 export default function BlockEditorClient(props) {
   return <BlockEditor {...props} />;
@@ -131,7 +144,7 @@ export default function EditorPage() {
 
 ```jsx
 // app/pages/[slug]/page.jsx
-import { BlockRenderer } from 'gutenberg-block-kit/renderer';
+import { BlockRenderer } from 'react-page-builder-free/renderer';
 import '@wordpress/block-library/build-style/style.css';
 
 export default async function Page({ params }) {
@@ -144,7 +157,7 @@ export default async function Page({ params }) {
 
 ```js
 const nextConfig = {
-  transpilePackages: ['gutenberg-block-kit'],
+  transpilePackages: ['react-page-builder-free'],
 };
 export default nextConfig;
 ```
@@ -157,8 +170,8 @@ export default nextConfig;
 
 ```jsx
 // app/routes/admin.editor.tsx
-import 'gutenberg-block-kit/styles';
-import { BlockEditor } from 'gutenberg-block-kit/editor';
+import 'react-page-builder-free/styles';
+import { BlockEditor } from 'react-page-builder-free/editor';
 import { ClientOnly } from 'remix-utils/client-only'; // or your own guard
 
 export default function AdminEditor() {
@@ -179,7 +192,7 @@ export default function AdminEditor() {
 
 ```jsx
 // app/routes/pages.$slug.tsx
-import { BlockRenderer } from 'gutenberg-block-kit/renderer';
+import { BlockRenderer } from 'react-page-builder-free/renderer';
 import blockLibraryStyles from '@wordpress/block-library/build-style/style.css?url';
 
 export const links = () => [{ rel: 'stylesheet', href: blockLibraryStyles }];
@@ -194,27 +207,27 @@ export default function Page() {
 
 ## Vite / React Router / Remix
 
-Use the included Vite plugin — **do not** add `@wordpress/*` to `optimizeDeps.include` yourself (those packages live under `gutenberg-block-kit` and Vite cannot resolve them at your app root).
+Use the included Vite plugin — **do not** add `@wordpress/*` to `optimizeDeps.include` yourself (those packages live under `react-page-builder-free` and Vite cannot resolve them at your app root).
 
 ```js
 // vite.config.js
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { gutenbergBlockKitVite } from 'gutenberg-block-kit/vite';
+import { reactPageBuilderVite } from 'react-page-builder-free/vite';
 
 export default defineConfig({
-  plugins: [react(), gutenbergBlockKitVite()],
+  plugins: [react(), reactPageBuilderVite()],
 });
 ```
 
-Do **not** add `gutenberg-block-kit/editor` to `optimizeDeps.include` manually — Vite will pre-bundle it into `node_modules/.vite/deps/` with a second React copy and you get `Cannot read properties of undefined (reading 'cloneElement')`. After upgrading, run `rm -rf node_modules/.vite` and restart dev.
+Do **not** add `react-page-builder-free/editor` to `optimizeDeps.include` manually — Vite will pre-bundle it into `node_modules/.vite/deps/` with a second React copy and you get `Cannot read properties of undefined (reading 'cloneElement')`. After upgrading, run `rm -rf node_modules/.vite` and restart dev.
 
-**Editor route (SSR)** — never top-level `import { BlockEditor } from 'gutenberg-block-kit/editor'` in a route file (React Router evaluates all routes on the server → `document is not defined`). Use `ClientBlockEditor` instead:
+**Editor route (SSR)** — never top-level `import { BlockEditor } from 'react-page-builder-free/editor'` in a route file (React Router evaluates all routes on the server → `document is not defined`). Use `ClientBlockEditor` instead:
 
 ```jsx
 // app/routes/admin.editor.tsx
 import { useEffect } from 'react';
-import { ClientBlockEditor } from 'gutenberg-block-kit/editor-client';
+import { ClientBlockEditor } from 'react-page-builder-free/editor-client';
 
 export function HydrateFallback() {
   return <p>Loading editor…</p>;
@@ -227,7 +240,7 @@ clientLoader.hydrate = true;
 
 export default function AdminEditor({ loaderData }) {
   useEffect(() => {
-    import('gutenberg-block-kit/styles');
+    import('react-page-builder-free/styles');
   }, []);
 
   return (
@@ -244,7 +257,7 @@ export default function AdminEditor({ loaderData }) {
 **Public route (SSR)** — only the renderer:
 
 ```jsx
-import { BlockRenderer } from 'gutenberg-block-kit/renderer';
+import { BlockRenderer } from 'react-page-builder-free/renderer';
 import '@wordpress/block-library/build-style/style.css';
 
 export default function PublicPage({ loaderData }) {
@@ -266,16 +279,16 @@ Author blocks like the kit's own `src/blocks/*`, but import the **shared WordPre
 
 ```jsx
 // your-app/blocks/carousel/index.jsx
-import { registerBlockType } from 'gutenberg-block-kit/wp/blocks';
+import { registerBlockType } from 'react-page-builder-free/wp/blocks';
 import {
   useBlockProps, RichText, InspectorControls, MediaUpload, MediaUploadCheck,
-} from 'gutenberg-block-kit/wp/block-editor';
-import { PanelBody, Button } from 'gutenberg-block-kit/wp/components';
-import { useState } from 'gutenberg-block-kit/wp/element';
-import { plus, trash } from 'gutenberg-block-kit/wp/icons';
+} from 'react-page-builder-free/wp/block-editor';
+import { PanelBody, Button } from 'react-page-builder-free/wp/components';
+import { useState } from 'react-page-builder-free/wp/element';
+import { plus, trash } from 'react-page-builder-free/wp/icons';
 import {
   ActionBuilder, ActionLink, DEFAULT_BUTTON_ACTION, resolveItemButtonAction,
-} from 'gutenberg-block-kit/actions';
+} from 'react-page-builder-free/actions';
 
 registerBlockType('myapp/carousel', { /* edit, save, attributes… */ });
 ```
@@ -287,8 +300,8 @@ import './carousel/index.jsx';
 
 ```jsx
 // your-app editor route
-import 'gutenberg-block-kit/styles';
-import { ClientBlockEditor } from 'gutenberg-block-kit/editor-client';
+import 'react-page-builder-free/styles';
+import { ClientBlockEditor } from 'react-page-builder-free/editor-client';
 import './blocks';
 
 <ClientBlockEditor
@@ -302,7 +315,7 @@ import './blocks';
 **Load-order safe alternative** — register in a callback instead of a side-effect import:
 
 ```js
-import { registerBlocks } from 'gutenberg-block-kit/editor';
+import { registerBlocks } from 'react-page-builder-free/editor';
 
 registerBlocks(({ blocks, blockEditor, element }) => {
   const { registerBlockType } = blocks;
@@ -313,8 +326,8 @@ registerBlocks(({ blocks, blockEditor, element }) => {
 
 | Prop / export | Purpose |
 |---------------|---------|
-| `gutenberg-block-kit/wp/*` | Same `@wordpress/*` instance the editor uses |
-| `gutenberg-block-kit/actions` | ActionBuilder, ActionLink, button-action helpers |
+| `react-page-builder-free/wp/*` | Same `@wordpress/*` instance the editor uses |
+| `react-page-builder-free/actions` | ActionBuilder, ActionLink, button-action helpers |
 | `disableBundledBlocks` | Omit all bundled `myapp/*` demo blocks |
 | `unregisterBlocks` | Remove specific blocks after init |
 | `registerBlocks(fn)` | Register host blocks after core init |
@@ -353,7 +366,7 @@ Same shape as [`src/data/customBlocksConfig.json`](src/data/customBlocksConfig.j
 ### Option D — `initBlocks()` before mount
 
 ```jsx
-import { initBlocks, BlockEditor } from 'gutenberg-block-kit/editor';
+import { initBlocks, BlockEditor } from 'react-page-builder-free/editor';
 
 await initBlocks(myBlocks, {
   customBlocksConfig: moreBlocks,
@@ -565,12 +578,12 @@ See `https://react-block-builder.vercel.app/demo/mediaHandlers.js` for a localSt
 ### Override editor settings
 
 ```jsx
-import 'gutenberg-block-kit/styles';
+import 'react-page-builder-free/styles';
 import {
   BlockEditor,
   EDITOR_SETTINGS,
   mergeEditorSettings,
-} from 'gutenberg-block-kit/editor';
+} from 'react-page-builder-free/editor';
 
 const mySettings = mergeEditorSettings(EDITOR_SETTINGS, {
   bodyPlaceholder: 'Start writing…',
@@ -619,8 +632,8 @@ const mySettings = mergeEditorSettings(EDITOR_SETTINGS, {
 ## Develop this repo
 
 ```bash
-git clone https://github.com/bhavik-dreamz/gutenberg-block-kit.git
-cd gutenberg-block-kit
+git clone https://github.com/bhavik-dreamz/react-page-builder-free.git
+cd react-page-builder-free
 pnpm install
 pnpm run dev          # examples/demo → http://localhost:5173
 pnpm run build:lib    # npm package → dist/

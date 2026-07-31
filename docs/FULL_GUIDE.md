@@ -1,8 +1,8 @@
-# gutenberg-block-kit — Complete Guide
+# react-page-builder-free — Complete Guide
 
 **Audience:** Developers integrating the package, and **AI coding agents** maintaining this repo.
 
-**Repository:** [github.com/bhavik-dreamz/gutenberg-block-kit](https://github.com/bhavik-dreamz/gutenberg-block-kit)
+**Repository:** [github.com/bhavik-dreamz/react-page-builder-free](https://github.com/bhavik-dreamz/react-page-builder-free)
 
 ---
 
@@ -32,7 +32,7 @@
 
 ## 1. What this project is
 
-`gutenberg-block-kit` is a **publishable npm library** (JavaScript, not TypeScript) that wraps WordPress Gutenberg (`@wordpress/block-editor`) for use in any React app.
+`react-page-builder-free` is a **publishable npm library** (JavaScript, not TypeScript) that wraps WordPress Gutenberg (`@wordpress/block-editor`) for use in any React app.
 
 | Piece | Role | Runs on server? |
 |-------|------|-----------------|
@@ -66,7 +66,7 @@ NOT PUBLISHED
 ### Do not
 
 - Put `localStorage`, Supabase, or `savePage` in `src/` library code.
-- Import `gutenberg-block-kit/editor` in Server Components or Node SSR.
+- Import `react-page-builder-free/editor` in Server Components or Node SSR.
 - Bundle `react` / `react-dom` inside the library (they are **peerDependencies**).
 - Add `next/*`, `@remix-run/*`, or framework-specific imports to `src/`.
 - Export `api.js` or demo files from `package.json` `exports`.
@@ -95,7 +95,7 @@ pnpm run build:demo
 ## 3. Repository layout
 
 ```
-gutenberg-block-kit/
+react-page-builder-free/
 ├── src/                      # Library source (published via dist/)
 │   ├── App.jsx               # BlockEditor component
 │   ├── editor.js             # Package entry: editor
@@ -135,13 +135,13 @@ gutenberg-block-kit/
 
 | Subpath | File | Purpose |
 |---------|------|---------|
-| `gutenberg-block-kit` | `dist/editor.mjs` | Default = editor |
-| `gutenberg-block-kit/editor` | `dist/editor.mjs` | BlockEditor, initBlocks, EditorProvider |
-| `gutenberg-block-kit/renderer` | `dist/renderer.mjs` | BlockRenderer only |
-| `gutenberg-block-kit/styles` | `dist/styles.css` | Editor styles |
-| `gutenberg-block-kit/bootstrap` | `dist/bootstrap.mjs` | Optional (editor already imports it) |
+| `react-page-builder-free` | `dist/editor.mjs` | Default = editor |
+| `react-page-builder-free/editor` | `dist/editor.mjs` | BlockEditor, initBlocks, EditorProvider |
+| `react-page-builder-free/renderer` | `dist/renderer.mjs` | BlockRenderer only |
+| `react-page-builder-free/styles` | `dist/styles.css` | Editor styles |
+| `react-page-builder-free/bootstrap` | `dist/bootstrap.mjs` | Optional (editor already imports it) |
 
-**Important:** `BlockRenderer` is **not** on the root export. Use `gutenberg-block-kit/renderer`.
+**Important:** `BlockRenderer` is **not** on the root export. Use `react-page-builder-free/renderer`.
 
 ---
 
@@ -155,7 +155,7 @@ gutenberg-block-kit/
 ### Commands
 
 ```bash
-cd gutenberg-block-kit
+cd react-page-builder-free
 pnpm install
 
 # Build library → dist/
@@ -190,9 +190,9 @@ Only `dist/` is published (`package.json` → `"files": ["dist"]`).
    ```
 3. Check package name is free:
    ```bash
-   npm view gutenberg-block-kit
+   npm view react-page-builder-free
    ```
-   If taken, change `"name"` in `package.json` (e.g. `@your-scope/gutenberg-block-kit`).
+   If taken, change `"name"` in `package.json` (e.g. `@your-scope/react-page-builder-free`).
 
 ### Pre-publish checklist
 
@@ -220,24 +220,24 @@ npm pack --dry-run
 # Publish (first time for scoped packages: --access public)
 npm publish
 # or
-npm publish --access public   # if name is @scope/gutenberg-block-kit
+npm publish --access public   # if name is @scope/react-page-builder-free
 ```
 
 ### After publish — install in any app
 
 ```bash
-npm install gutenberg-block-kit react react-dom
+npm install react-page-builder-free react react-dom
 ```
 
 ### Link locally without publishing (development)
 
 ```bash
-# In gutenberg-block-kit repo
+# In react-page-builder-free repo
 pnpm run build:lib
 npm link
 
 # In your Next.js / Vite app
-npm link gutenberg-block-kit
+npm link react-page-builder-free
 ```
 
 ---
@@ -249,7 +249,7 @@ The demo lives in **`examples/demo/`**. It uses the library via Vite aliases (de
 ### Start dev server
 
 ```bash
-cd gutenberg-block-kit
+cd react-page-builder-free
 pnpm install
 pnpm run dev
 ```
@@ -258,8 +258,8 @@ Open **http://localhost:5173**
 
 ### What the demo does
 
-- Imports `BlockEditor` from `gutenberg-block-kit/editor`
-- Imports `gutenberg-block-kit/styles`
+- Imports `BlockEditor` from `react-page-builder-free/editor`
+- Imports `react-page-builder-free/styles`
 - Saves pages via `examples/demo/api.js` (localStorage + optional Supabase)
 - “View site” uses `FrontendPage` + `BlockRenderer`
 
@@ -335,8 +335,8 @@ vercel --prod
 ### Minimal editor page
 
 ```jsx
-import 'gutenberg-block-kit/styles';
-import { BlockEditor } from 'gutenberg-block-kit/editor';
+import 'react-page-builder-free/styles';
+import { BlockEditor } from 'react-page-builder-free/editor';
 
 export default function AdminEditor() {
   return (
@@ -361,7 +361,7 @@ export default function AdminEditor() {
 ### Minimal public page
 
 ```jsx
-import { BlockRenderer } from 'gutenberg-block-kit/renderer';
+import { BlockRenderer } from 'react-page-builder-free/renderer';
 import '@wordpress/block-library/build-style/style.css';
 
 export function PublicPage({ html }) {
@@ -393,7 +393,7 @@ export function PublicPage({ html }) {
 ```bash
 npx create-next-app@latest my-site
 cd my-site
-npm install gutenberg-block-kit
+npm install react-page-builder-free
 ```
 
 `next.config.js`:
@@ -401,7 +401,7 @@ npm install gutenberg-block-kit
 ```js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['gutenberg-block-kit'],
+  transpilePackages: ['react-page-builder-free'],
 };
 
 module.exports = nextConfig;
@@ -414,8 +414,8 @@ module.exports = nextConfig;
 ```jsx
 'use client';
 
-import 'gutenberg-block-kit/styles';
-import { BlockEditor } from 'gutenberg-block-kit/editor';
+import 'react-page-builder-free/styles';
+import { BlockEditor } from 'react-page-builder-free/editor';
 
 export default function BlockEditorClient({ pageId, initial }) {
   return (
@@ -459,7 +459,7 @@ export default function EditorPage() {
 `app/(site)/[slug]/page.jsx`:
 
 ```jsx
-import { BlockRenderer } from 'gutenberg-block-kit/renderer';
+import { BlockRenderer } from 'react-page-builder-free/renderer';
 import '@wordpress/block-library/build-style/style.css';
 
 async function getPage(slug) {
@@ -510,8 +510,8 @@ export async function POST(request) {
 
 ```tsx
 import type { MetaFunction } from '@remix-run/node';
-import 'gutenberg-block-kit/styles';
-import { BlockEditor } from 'gutenberg-block-kit/editor';
+import 'react-page-builder-free/styles';
+import { BlockEditor } from 'react-page-builder-free/editor';
 import { useFetcher } from '@remix-run/react';
 
 export const meta: MetaFunction = () => [{ title: 'Editor' }];
@@ -543,24 +543,24 @@ Public route — `BlockRenderer` in loader + component (SSR safe).
 
 ### Vite / React Router (SSR)
 
-`vite.config.js` — use **`gutenberg-block-kit/vite`** (required for npm consumers):
+`vite.config.js` — use **`react-page-builder-free/vite`** (required for npm consumers):
 
 ```js
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { gutenbergBlockKitVite } from 'gutenberg-block-kit/vite';
+import { reactPageBuilderVite } from 'react-page-builder-free/vite';
 
 export default defineConfig({
-  plugins: [react(), gutenbergBlockKitVite()],
+  plugins: [react(), reactPageBuilderVite()],
 });
 ```
 
-**Do not** list `@wordpress/block-editor`, `@wordpress/components`, etc. in `optimizeDeps.include`. Those packages are dependencies of `gutenberg-block-kit`, not your app; Vite will fail with *Failed to resolve entry for package "@wordpress/components"* unless you use the plugin above or install every `@wordpress/*` package at your project root manually.
+**Do not** list `@wordpress/block-editor`, `@wordpress/components`, etc. in `optimizeDeps.include`. Those packages are dependencies of `react-page-builder-free`, not your app; Vite will fail with *Failed to resolve entry for package "@wordpress/components"* unless you use the plugin above or install every `@wordpress/*` package at your project root manually.
 
-**SSR / `document is not defined`** — React Router evaluates every route module on the server. Do **not** top-level import `gutenberg-block-kit` or `gutenberg-block-kit/editor` in route files. Use:
+**SSR / `document is not defined`** — React Router evaluates every route module on the server. Do **not** top-level import `react-page-builder-free` or `react-page-builder-free/editor` in route files. Use:
 
-- **Editor admin routes:** `ClientBlockEditor` from `gutenberg-block-kit/editor-client` + `clientLoader` / `HydrateFallback` (see README React Router section).
-- **Public pages:** `BlockRenderer` from `gutenberg-block-kit/renderer` only.
+- **Editor admin routes:** `ClientBlockEditor` from `react-page-builder-free/editor-client` + `clientLoader` / `HydrateFallback` (see README React Router section).
+- **Public pages:** `BlockRenderer` from `react-page-builder-free/renderer` only.
 
 Use the same imports as in [section 9](#9-use-in-a-consumer-app).
 
@@ -600,7 +600,7 @@ CRA is harder with modern `@wordpress/*` ESM packages. **Prefer Vite or Next.js.
 ### Imperative
 
 ```js
-import { initBlocks, BlockEditor } from 'gutenberg-block-kit/editor';
+import { initBlocks, BlockEditor } from 'react-page-builder-free/editor';
 
 initBlocks(myBlocks, { customBlocksConfig: moreBlocks });
 ```
@@ -711,7 +711,7 @@ Reference implementation: `examples/demo/actionsConfig.js`.
 
 | Surface | Import |
 |---------|--------|
-| Editor routes | `import 'gutenberg-block-kit/styles'` |
+| Editor routes | `import 'react-page-builder-free/styles'` |
 | Public / SSR pages | `import '@wordpress/block-library/build-style/style.css'` |
 
 Never import editor styles on public-only routes (large bundle).
@@ -751,12 +751,12 @@ When editing this repository:
 | Problem | Cause | Fix |
 |---------|--------|-----|
 | Invalid hook call / two Reacts | Duplicate React | `react`/`react-dom` as peers; dedupe in Vite; one React version in app |
-| `cloneElement` of undefined | Vite `optimizeDeps` re-bundled `gutenberg-block-kit/editor` | Use `gutenbergBlockKitVite()` (excludes editor from pre-bundle); `rm -rf node_modules/.vite` |
-| 404 on `/node_modules/gutenberg-block-kit/dist/*.map` | Browser requested a source map; React Router has no route for it | Harmless dev noise on older package versions; upgrade `gutenberg-block-kit` (maps disabled in dist) or ignore |
+| `cloneElement` of undefined | Vite `optimizeDeps` re-bundled `react-page-builder-free/editor` | Use `reactPageBuilderVite()` (excludes editor from pre-bundle); `rm -rf node_modules/.vite` |
+| 404 on `/node_modules/react-page-builder-free/dist/*.map` | Browser requested a source map; React Router has no route for it | Harmless dev noise on older package versions; upgrade `react-page-builder-free` (maps disabled in dist) or ignore |
 | `window is not defined` | Editor imported on server | `dynamic(..., { ssr: false })` or `'use client'` |
-| `document is not defined` | Editor chunk loaded in Node | Import only `gutenberg-block-kit/renderer` on server |
+| `document is not defined` | Editor chunk loaded in Node | Import only `react-page-builder-free/renderer` on server |
 | Blocks unstyled on frontend | Missing block library CSS | Import `@wordpress/block-library/build-style/style.css` |
-| Editor UI broken / unstyled | Missing editor CSS | `import 'gutenberg-block-kit/styles'` |
+| Editor UI broken / unstyled | Missing editor CSS | `import 'react-page-builder-free/styles'` |
 | Huge bundle on public page | Editor CSS/JS on wrong route | Split routes; use `/renderer` only |
 | `npm publish` missing files | Forgot build | Run `pnpm run build:lib` first |
 | Vercel 404 on demo | Wrong output dir | Output must be `dist-demo`, build `pnpm run build:demo` |

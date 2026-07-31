@@ -1,4 +1,4 @@
-# Contributing to react-block-builder
+# Contributing to react-page-builder-free
 
 First off — thank you for taking the time to contribute! 🎉  
 This project is built to be extended by the community. Whether you're fixing a bug, adding a new block, or building an entire block pack, your contribution is welcome.
@@ -51,8 +51,8 @@ Harassment, discrimination, or toxic behavior of any kind will not be tolerated.
 
 ```bash
 # 1. Fork the repo on GitHub, then clone your fork
-git clone https://github.com/<your-username>/react-block-builder.git
-cd react-block-builder
+git clone https://github.com/<your-username>/react-page-builder-free.git
+cd react-page-builder-free
 
 # 2. Install dependencies
 npm install
@@ -201,8 +201,8 @@ Want to publish your own block collection as a standalone NPM package?
 ### 1. Scaffold a new package
 
 ```bash
-mkdir gutenberg-block-kit-my-pack
-cd gutenberg-block-kit-my-pack
+mkdir react-page-builder-my-pack
+cd react-page-builder-my-pack
 npm init -y
 ```
 
@@ -238,15 +238,15 @@ export function register() {
 npm publish --access public
 ```
 
-### 5. Use in react-block-builder
+### 5. Use in react-page-builder-free
 
 ```bash
-npm install gutenberg-block-kit-my-pack
+npm install react-page-builder-my-pack
 ```
 
 ```js
 // In registerBlocks.jsx
-import { register } from 'gutenberg-block-kit-my-pack';
+import { register } from 'react-page-builder-my-pack';
 register();
 ```
 
@@ -281,7 +281,7 @@ A maintainer will review it, leave feedback if needed, and merge when ready.
 
 ## Reporting Bugs
 
-Open a [GitHub Issue](https://github.com/bhavik-dreamz/react-block-builder/issues/new) and include:
+Open a [GitHub Issue](https://github.com/bhavik-dreamz/react-page-builder-free/issues/new) and include:
 
 - Steps to reproduce
 - Expected behaviour
@@ -293,16 +293,16 @@ Open a [GitHub Issue](https://github.com/bhavik-dreamz/react-block-builder/issue
 
 ## Requesting Features
 
-Open a [GitHub Discussion](https://github.com/bhavik-dreamz/react-block-builder/discussions) under the **Ideas** category.  
+Open a [GitHub Discussion](https://github.com/bhavik-dreamz/react-page-builder-free/discussions) under the **Ideas** category.  
 Describe your use case — even a short paragraph helps us understand the value.
 
 ---
 
 ## Community
 
-- 💬 [GitHub Discussions](https://github.com/bhavik-dreamz/react-block-builder/discussions) — questions, ideas, block pack announcements
-- 🐛 [GitHub Issues](https://github.com/bhavik-dreamz/react-block-builder/issues) — bug reports
-- 📦 NPM: [gutenberg-block-kit](https://www.npmjs.com/package/gutenberg-block-kit)
+- 💬 [GitHub Discussions](https://github.com/bhavik-dreamz/react-page-builder-free/discussions) — questions, ideas, block pack announcements
+- 🐛 [GitHub Issues](https://github.com/bhavik-dreamz/react-page-builder-free/issues) — bug reports
+- 📦 NPM: [react-page-builder-free](https://www.npmjs.com/package/react-page-builder-free)
 - 🚀 Live demo: [react-block-builder.vercel.app](https://react-block-builder.vercel.app)
 
 ---

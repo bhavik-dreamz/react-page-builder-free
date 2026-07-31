@@ -1,5 +1,37 @@
 # Changelog
 
+## 2.0.0
+
+### Changed — BREAKING: package renamed
+
+- Package renamed **`gutenberg-block-kit` → `react-page-builder-free`**. Repo renamed to
+  [`bhavik-dreamz/react-page-builder-free`](https://github.com/bhavik-dreamz/react-page-builder-free).
+  No API changes beyond the import specifier — update every import path:
+
+  ```diff
+  - import { BlockEditor, initBlocks } from 'gutenberg-block-kit/editor';
+  - import { BlockRenderer } from 'gutenberg-block-kit/renderer';
+  - import 'gutenberg-block-kit/styles';
+  + import { BlockEditor, initBlocks } from 'react-page-builder-free/editor';
+  + import { BlockRenderer } from 'react-page-builder-free/renderer';
+  + import 'react-page-builder-free/styles';
+  ```
+
+  Codemod:
+
+  ```bash
+  grep -rl 'gutenberg-block-kit' src | xargs sed -i "s/gutenberg-block-kit/react-page-builder-free/g"
+  ```
+
+- Vite plugin export renamed **`gutenbergBlockKitVite` → `reactPageBuilderVite`**.
+  Old name still exported as a deprecated alias.
+- WordPress media-upload filter name changed to `react-page-builder-free/host-media-upload`.
+- `gutenberg-block-kit` on npm is deprecated; `1.2.1` re-exports this package.
+
+### Added
+
+- All `## Unreleased` items below ship in this release.
+
 ## Unreleased
 
 ### Added

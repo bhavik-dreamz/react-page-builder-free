@@ -2,7 +2,7 @@
  * Demo public site viewer — not part of the published package.
  */
 import React, { useState, useEffect } from 'react';
-import { BlockRenderer } from 'gutenberg-block-kit/renderer';
+import { BlockRenderer } from 'react-page-builder-free/renderer';
 import { listPages, loadPage, deletePage } from './api.js';
 import { initCarousels } from './carouselInit.js';
 import { initClientStories } from './clientStoriesInit.js';

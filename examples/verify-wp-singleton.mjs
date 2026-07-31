@@ -1,5 +1,5 @@
 /**
- * Proves gutenberg-block-kit/wp/blocks and editor share one wp-runtime chunk
+ * Proves react-page-builder-free/wp/blocks and editor share one wp-runtime chunk
  * (single @wordpress/blocks registry in the browser bundle).
  */
 import { readFileSync, readdirSync, existsSync } from 'node:fs';

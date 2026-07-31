@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { BlockRenderer } from '../dist/renderer.mjs';
-import { gutenbergBlockKitVite } from '../dist/vite.mjs';
+import { reactPageBuilderVite } from '../dist/vite.mjs';
 import { ClientBlockEditor } from '../dist/editor-client.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -56,12 +56,12 @@ if (typeof BlockRenderer !== 'function') {
   throw new Error('BlockRenderer should be a function');
 }
 
-if (typeof gutenbergBlockKitVite !== 'function') {
-  throw new Error('gutenbergBlockKitVite should be a function');
+if (typeof reactPageBuilderVite !== 'function') {
+  throw new Error('reactPageBuilderVite should be a function');
 }
 
-assertExportsInFile('dist/vite.mjs', ['gutenbergBlockKitVite', 'default']);
-assertExportsInFile('dist/vite.cjs', ['gutenbergBlockKitVite', 'exports.default']);
+assertExportsInFile('dist/vite.mjs', ['reactPageBuilderVite', 'default']);
+assertExportsInFile('dist/vite.cjs', ['reactPageBuilderVite', 'exports.default']);
 assertExportsInFile('dist/editor-client.mjs', ['ClientBlockEditor', 'default']);
 assertExportsInFile('dist/editor-client.cjs', ['ClientBlockEditor', 'exports.default']);
 

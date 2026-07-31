@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Quick push helper for react-block-builder
+# Quick push helper for react-page-builder-free
 # Usage:  ./.push.sh "commit message"   OR   ./.push.sh   (uses last commit msg)
 set -euo pipefail
 MSG="${1:-Initial import of apps/dev-app from builder-mono}"

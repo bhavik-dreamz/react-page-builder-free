@@ -28,7 +28,7 @@ Shopify-specific is baked into `dist`.
 ## The `actions` prop
 
 ```jsx
-import { BlockEditor } from 'gutenberg-block-kit/editor';
+import { BlockEditor } from 'react-page-builder-free/editor';
 
 <BlockEditor
   actions={{
@@ -101,7 +101,7 @@ persisted JSON ──denormalizeParams──▶ editor form (round-trip)
 
 ```js
 // shopifyActions.js
-import { parsePageParams, pageParamsToRaw } from 'gutenberg-block-kit/editor';
+import { parsePageParams, pageParamsToRaw } from 'react-page-builder-free/editor';
 
 export const shopifyActions = [
   {
@@ -171,7 +171,7 @@ Wire it in:
 
 ```jsx
 // editor mount
-import { BlockEditor } from 'gutenberg-block-kit/editor';
+import { BlockEditor } from 'react-page-builder-free/editor';
 import { shopifyActions } from './shopifyActions.js';
 import { fetchShopifyPages, openProductPicker, openCollectionPicker } from './shopify.js';
 
@@ -191,7 +191,7 @@ import { fetchShopifyPages, openProductPicker, openCollectionPicker } from './sh
 
 ## Programmatic helpers
 
-Exported from `gutenberg-block-kit/editor` (and `gutenberg-block-kit/actions`):
+Exported from `react-page-builder-free/editor` (and `react-page-builder-free/actions`):
 
 | Export | Use |
 |--------|-----|

@@ -1,11 +1,11 @@
 /**
  * Client-only editor entry — do not import in Server Components or Node SSR.
  * Includes bootstrap side effects. Import styles separately:
- *   import 'gutenberg-block-kit/styles'
+ *   import 'react-page-builder-free/styles'
  *
- * For SSR HTML use `gutenberg-block-kit/renderer`.
+ * For SSR HTML use `react-page-builder-free/renderer`.
  *
- * Host blocks: import `gutenberg-block-kit/wp/*` in your `.jsx` files, or use
+ * Host blocks: import `react-page-builder-free/wp/*` in your `.jsx` files, or use
  * `registerBlocks((wp) => …)`. Pass `disableBundledBlocks` / `unregisterBlocks`
  * to control bundled demos. `initBlocks()` is async.
  */
@@ -19,10 +19,12 @@ export { default } from './App.jsx';
 export {
   initBlocks,
   registerBlocks,
+  reRegisterJSONBlock,
   getWpRuntime,
   exposeWpOnWindow,
   unregisterBlockType,
 } from './registerBlocks.jsx';
+export { buildBlockSettings } from './blockFactory.jsx';
 export { resolveBlockIcon } from './utils/blockIcons.js';
 export { EditorProvider, useEditor } from './context/EditorContext.jsx';
 export { EDITOR_SETTINGS, mergeEditorSettings } from './config/editorSettings.js';

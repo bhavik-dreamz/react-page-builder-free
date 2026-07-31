@@ -1,7 +1,7 @@
 /**
  * Default package entry — editor only (client).
- * For SSR HTML output use `gutenberg-block-kit/renderer`.
- * For styles use `gutenberg-block-kit/styles`.
+ * For SSR HTML output use `react-page-builder-free/renderer`.
+ * For styles use `react-page-builder-free/styles`.
  */
 export {
   BlockEditor,

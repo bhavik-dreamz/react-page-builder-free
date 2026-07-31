@@ -30,13 +30,13 @@ export default defineConfig({
   },
   resolve: {
     dedupe: ['react', 'react-dom', '@wordpress/element'],
-    // More specific aliases first (avoid gutenberg-block-kit → …/editor resolution)
+    // More specific aliases first (avoid react-page-builder-free → …/editor resolution)
     alias: [
-      { find: 'gutenberg-block-kit/editor', replacement: pkgAlias('editor', 'editor.js') },
-      { find: 'gutenberg-block-kit/renderer', replacement: pkgAlias('renderer', 'renderer.js') },
-      { find: 'gutenberg-block-kit/bootstrap', replacement: pkgAlias('bootstrap', 'bootstrap.js') },
-      { find: 'gutenberg-block-kit/styles', replacement: pkgAlias('styles', 'styles.css') },
-      { find: 'gutenberg-block-kit', replacement: pkgAlias('index', 'index.js') },
+      { find: 'react-page-builder-free/editor', replacement: pkgAlias('editor', 'editor.js') },
+      { find: 'react-page-builder-free/renderer', replacement: pkgAlias('renderer', 'renderer.js') },
+      { find: 'react-page-builder-free/bootstrap', replacement: pkgAlias('bootstrap', 'bootstrap.js') },
+      { find: 'react-page-builder-free/styles', replacement: pkgAlias('styles', 'styles.css') },
+      { find: 'react-page-builder-free', replacement: pkgAlias('index', 'index.js') },
       { find: 'path', replacement: 'path-browserify' },
     ],
   },

@@ -1,5 +1,5 @@
 /**
- * Single @wordpress runtime object — editor and gutenberg-block-kit/wp/* must share this.
+ * Single @wordpress runtime object — editor and react-page-builder-free/wp/* must share this.
  */
 import * as blocks from '@wordpress/blocks';
 import * as blockEditor from '@wordpress/block-editor';

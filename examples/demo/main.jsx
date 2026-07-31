@@ -2,11 +2,11 @@
  * Demo app — not published with the package.
  * Shows BlockEditor + local persistence via onSave / onLoad.
  */
-import 'gutenberg-block-kit/styles';
+import 'react-page-builder-free/styles';
 
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
-import { BlockEditor, initBlocks } from 'gutenberg-block-kit/editor';
+import { BlockEditor, initBlocks } from 'react-page-builder-free/editor';
 import FrontendPage from './FrontendPage.jsx';
 import { savePage, loadPage } from './api.js';
 import { demoMediaHandlers } from './mediaHandlers.js';

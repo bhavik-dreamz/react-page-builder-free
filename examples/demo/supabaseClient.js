@@ -1,5 +1,5 @@
 /**
- * Demo-only Supabase client (optional). Not shipped with gutenberg-block-kit.
+ * Demo-only Supabase client (optional). Not shipped with react-page-builder-free.
  */
 import { createClient } from '@supabase/supabase-js';
 

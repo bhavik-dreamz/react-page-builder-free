@@ -1,20 +1,40 @@
 {
-  "name": "gutenberg-block-kit",
-  "version": "1.1.6",
-  "description": "Gutenberg block editor and SSR-safe renderer for React — use in Next.js, Remix, or Vite with onSave/onLoad hooks.",
+  "name": "react-page-builder-free",
+  "version": "2.0.0",
+  "description": "Free React page builder — drag-and-drop visual editor built on Gutenberg blocks, with an SSR-safe renderer for Next.js, Remix, and Vite. Open-source, no-code page builder for React apps via onSave/onLoad hooks.",
   "private": false,
+  "homepage": "https://react-block-builder.vercel.app/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bhavik-dreamz/react-block-builder.git"
+    "url": "https://github.com/bhavik-dreamz/react-page-builder-free.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bhavik-dreamz/react-page-builder-free/issues"
   },
   "keywords": [
-    "gutenberg",
-    "block-editor",
-    "wordpress",
-    "react",
-    "vite",
+    "react-page-builder",
     "page-builder",
-    "cms"
+    "page-builder-react",
+    "free-page-builder",
+    "drag-and-drop",
+    "drag-and-drop-builder",
+    "visual-editor",
+    "website-builder",
+    "block-editor",
+    "gutenberg",
+    "gutenberg-react",
+    "wysiwyg",
+    "wysiwyg-editor",
+    "no-code",
+    "content-editor",
+    "landing-page-builder",
+    "react",
+    "nextjs",
+    "remix",
+    "vite",
+    "ssr",
+    "cms",
+    "headless-cms"
   ],
   "author": {
     "name": "Bhavik Patel",
@@ -148,7 +168,9 @@
     "test:boundary": "pnpm run build:lib && node examples/verify-package-boundary.mjs",
     "test:react-binding": "pnpm run build:lib && node examples/verify-react-binding.mjs",
     "test:wp-singleton": "pnpm run build:lib && node examples/verify-wp-singleton.mjs",
-    "prepublishOnly": "pnpm run test:exports && pnpm run test:bundle && pnpm run test:boundary && pnpm run test:wp-singleton && node examples/verify-react-binding.mjs"
+    "prepublishOnly": "pnpm run test:exports && pnpm run test:bundle && pnpm run test:boundary && pnpm run test:wp-singleton && node examples/verify-react-binding.mjs",
+    "publish:shim": "npm publish shim/gutenberg-block-kit --access public",
+    "deprecate:shim": "npm deprecate gutenberg-block-kit \"Renamed to react-page-builder-free — run: npm i react-page-builder-free (see https://github.com/bhavik-dreamz/react-page-builder-free)\""
   },
   "engines": {
     "node": ">=22.0.0"

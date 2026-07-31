@@ -7,106 +7,36 @@ if (typeof window !== 'undefined' && !window.React) {
 import './registerCategories.jsx';
 import { ensureCustomCategoryFirst } from './registerCategories.jsx';
 
-import { registerBlockType, unregisterBlockType } from '@wordpress/blocks';
-import { useBlockProps, RichText } from '@wordpress/block-editor';
+import { registerBlockType, unregisterBlockType, getBlockType } from '@wordpress/blocks';
 import { registerCoreBlocks } from '@wordpress/block-library';
 import './blocks/paragraphFormats.jsx';
 
 import customBlocksConfig from './data/customBlocksConfig.json';
-import { resolveBlockIcon } from './utils/blockIcons.js';
+import { buildBlockSettings } from './blockFactory.jsx';
 import { getWpRuntime, exposeWpOnWindow } from './wp/runtime.js';
 
 // ── JSON Block Factory ──────────────────────────────────────────────────────────
+// Schema-driven: `blockDef` is pure JSON (attributes + fields spec). See
+// blockFactory.jsx for the control map and supported field types.
 function registerJSONBlock(blockDef) {
-  const slug = blockDef.name.replace('myapp/', '');
+  registerBlockType(blockDef.name, buildBlockSettings(blockDef));
+}
 
-  const textKeys = Object.keys(blockDef.attributes).filter(
-    k => blockDef.attributes[k].type === 'string' && !k.toLowerCase().includes('color'),
-  );
-  const colorKeys = Object.keys(blockDef.attributes).filter(k =>
-    k.toLowerCase().includes('color'),
-  );
-
-  function Edit({ attributes, setAttributes }) {
-    const accent = colorKeys.length ? attributes[colorKeys[0]] : '#3858e9';
-    const bp = useBlockProps({
-      className: `myapp-json-block myapp-json-block--${slug}`,
-      style: { borderLeft: `4px solid ${accent}` },
-    });
-
-    return (
-      <div {...bp}>
-        <span className="myapp-json-block-label">{blockDef.title}</span>
-
-        {textKeys.map(key => {
-          const isHeading =
-            key.includes('title') || key.includes('heading') ||
-            key === 'text' || key === 'author';
-          return (
-            <RichText
-              key={key}
-              tagName={isHeading ? 'strong' : 'p'}
-              value={attributes[key]}
-              onChange={val => setAttributes({ [key]: val })}
-              placeholder={blockDef.attributes[key].default || key}
-              className={`myapp-attr-${key}`}
-            />
-          );
-        })}
-
-        {colorKeys.map(key => (
-          <div key={key} className="myapp-color-row">
-            <label>{key.replace(/([A-Z])/g, ' $1').toLowerCase()}:</label>
-            <input
-              type="color"
-              value={attributes[key]}
-              onChange={e => setAttributes({ [key]: e.target.value })}
-            />
-            <span
-              className="myapp-color-swatch"
-              style={{ background: attributes[key] }}
-            />
-          </div>
-        ))}
-      </div>
-    );
+/**
+ * Re-register a JSON block after its definition changed within a session
+ * (unregister + register). Safe to call before the block exists.
+ * @param {object} blockDef
+ */
+export function reRegisterJSONBlock(blockDef) {
+  if (!blockDef?.name) return;
+  if (getBlockType(blockDef.name)) {
+    try {
+      unregisterBlockType(blockDef.name);
+    } catch (err) {
+      console.warn(`re-register: unregister("${blockDef.name}") failed:`, err);
+    }
   }
-
-  function Save({ attributes }) {
-    const accent = colorKeys.length ? attributes[colorKeys[0]] : '#3858e9';
-    const bp = useBlockProps.save({
-      className: `myapp-json-block myapp-json-block--${slug}`,
-      style: { borderLeft: `4px solid ${accent}` },
-    });
-
-    return (
-      <div {...bp}>
-        {textKeys.map(key => {
-          const isHeading =
-            key.includes('title') || key.includes('heading') ||
-            key === 'text' || key === 'author';
-          const Tag = isHeading ? 'strong' : 'p';
-          return (
-            <Tag key={key} className={`myapp-attr-${key}`}>
-              <RichText.Content value={attributes[key]} />
-            </Tag>
-          );
-        })}
-      </div>
-    );
-  }
-
-  registerBlockType(blockDef.name, {
-    apiVersion: 3,
-    title: blockDef.title,
-    description: blockDef.description,
-    category: blockDef.category,
-    icon: resolveBlockIcon(blockDef.icon),
-    keywords: blockDef.keywords || [],
-    attributes: blockDef.attributes,
-    edit: Edit,
-    save: Save,
-  });
+  registerJSONBlock(blockDef);
 }
 
 // ── Host block registration queue ───────────────────────────────────────────────

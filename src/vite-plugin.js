@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const require = createRequire(import.meta.url);
 
 function getPackageRoot() {
-  return dirname(require.resolve('gutenberg-block-kit/package.json'));
+  return dirname(require.resolve('react-page-builder-free/package.json'));
 }
 
 function resolveFromKit(id) {
@@ -17,7 +17,7 @@ function resolveFromKit(id) {
 }
 
 /**
- * Vite plugin for consumer apps using gutenberg-block-kit.
+ * Vite plugin for consumer apps using react-page-builder-free.
  * Resolves @wordpress/* from this package's dependencies (npm/pnpm nested installs)
  * and avoids broken optimizeDeps pre-bundling when WordPress isn't at the app root.
  *
@@ -25,15 +25,15 @@ function resolveFromKit(id) {
  * // vite.config.js
  * import { defineConfig } from 'vite';
  * import react from '@vitejs/plugin-react';
- * import { gutenbergBlockKitVite } from 'gutenberg-block-kit/vite';
+ * import { reactPageBuilderVite } from 'react-page-builder-free/vite';
  *
  * export default defineConfig({
- *   plugins: [react(), gutenbergBlockKitVite()],
+ *   plugins: [react(), reactPageBuilderVite()],
  * });
  */
-export function gutenbergBlockKitVite() {
+export function reactPageBuilderVite() {
   return {
-    name: 'gutenberg-block-kit-vite',
+    name: 'react-page-builder-free-vite',
     config() {
       return {
         resolve: {
@@ -42,31 +42,31 @@ export function gutenbergBlockKitVite() {
         optimizeDeps: {
           // Pre-bundling the editor duplicates React → cloneElement / hook errors.
           exclude: [
-            'gutenberg-block-kit',
-            'gutenberg-block-kit/editor',
-            'gutenberg-block-kit/editor-client',
-            'gutenberg-block-kit/wp',
-            'gutenberg-block-kit/wp/blocks',
-            'gutenberg-block-kit/wp/block-editor',
-            'gutenberg-block-kit/wp/components',
-            'gutenberg-block-kit/wp/element',
-            'gutenberg-block-kit/wp/data',
-            'gutenberg-block-kit/wp/icons',
-            'gutenberg-block-kit/actions',
+            'react-page-builder-free',
+            'react-page-builder-free/editor',
+            'react-page-builder-free/editor-client',
+            'react-page-builder-free/wp',
+            'react-page-builder-free/wp/blocks',
+            'react-page-builder-free/wp/block-editor',
+            'react-page-builder-free/wp/components',
+            'react-page-builder-free/wp/element',
+            'react-page-builder-free/wp/data',
+            'react-page-builder-free/wp/icons',
+            'react-page-builder-free/actions',
           ],
         },
         ssr: {
-          external: ['gutenberg-block-kit', 'gutenberg-block-kit/editor'],
+          external: ['react-page-builder-free', 'react-page-builder-free/editor'],
         },
       };
     },
     resolveId(source) {
-      if (source.startsWith('gutenberg-block-kit/wp')) {
-        const sub = source.replace('gutenberg-block-kit/', '');
-        return resolveFromKit(`gutenberg-block-kit/${sub}`) || resolveFromKit(source);
+      if (source.startsWith('react-page-builder-free/wp')) {
+        const sub = source.replace('react-page-builder-free/', '');
+        return resolveFromKit(`react-page-builder-free/${sub}`) || resolveFromKit(source);
       }
-      if (source === 'gutenberg-block-kit/actions') {
-        return resolveFromKit('gutenberg-block-kit/actions');
+      if (source === 'react-page-builder-free/actions') {
+        return resolveFromKit('react-page-builder-free/actions');
       }
       if (!source.startsWith('@wordpress/')) {
         return null;
@@ -76,4 +76,9 @@ export function gutenbergBlockKitVite() {
   };
 }
 
-export default gutenbergBlockKitVite;
+/**
+ * @deprecated Renamed to `reactPageBuilderVite` in v2. Kept for `gutenberg-block-kit` users.
+ */
+export const gutenbergBlockKitVite = reactPageBuilderVite;
+
+export default reactPageBuilderVite;
