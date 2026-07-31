@@ -1,5 +1,6 @@
 # Changelog
 
+<<<<<<< HEAD
 ## 2.0.1
 
 Docs/metadata only — no runtime changes.
@@ -17,6 +18,8 @@ Docs/metadata only — no runtime changes.
   `api.npmjs.org/downloads/point/last-month/react-page-builder-free` returns data.
 - Added node-engine and PRs-welcome badges.
 
+=======
+>>>>>>> 4fb37ad (Rename the plugins)
 ## 2.0.0
 
 ### Changed — BREAKING: package renamed

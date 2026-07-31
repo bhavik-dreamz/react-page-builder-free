@@ -1,6 +1,10 @@
 {
   "name": "react-page-builder-free",
+<<<<<<< HEAD
   "version": "2.0.1",
+=======
+  "version": "2.0.0",
+>>>>>>> 4fb37ad (Rename the plugins)
   "description": "Free React page builder — drag-and-drop visual editor built on Gutenberg blocks, with an SSR-safe renderer for Next.js, Remix, and Vite. Open-source, no-code page builder for React apps via onSave/onLoad hooks.",
   "private": false,
   "homepage": "https://react-block-builder.vercel.app/",
@@ -169,7 +173,11 @@
     "test:react-binding": "pnpm run build:lib && node examples/verify-react-binding.mjs",
     "test:wp-singleton": "pnpm run build:lib && node examples/verify-wp-singleton.mjs",
     "prepublishOnly": "pnpm run test:exports && pnpm run test:bundle && pnpm run test:boundary && pnpm run test:wp-singleton && node examples/verify-react-binding.mjs",
+<<<<<<< HEAD
     "publish:shim": "cd shim/gutenberg-block-kit && npm publish --access public",
+=======
+    "publish:shim": "npm publish shim/gutenberg-block-kit --access public",
+>>>>>>> 4fb37ad (Rename the plugins)
     "deprecate:shim": "npm deprecate gutenberg-block-kit \"Renamed to react-page-builder-free — run: npm i react-page-builder-free (see https://github.com/bhavik-dreamz/react-page-builder-free)\""
   },
   "engines": {
