@@ -169,7 +169,7 @@
     "test:react-binding": "pnpm run build:lib && node examples/verify-react-binding.mjs",
     "test:wp-singleton": "pnpm run build:lib && node examples/verify-wp-singleton.mjs",
     "prepublishOnly": "pnpm run test:exports && pnpm run test:bundle && pnpm run test:boundary && pnpm run test:wp-singleton && node examples/verify-react-binding.mjs",
-    "publish:shim": "npm publish shim/gutenberg-block-kit --access public",
+    "publish:shim": "cd shim/gutenberg-block-kit && npm publish --access public",
     "deprecate:shim": "npm deprecate gutenberg-block-kit \"Renamed to react-page-builder-free — run: npm i react-page-builder-free (see https://github.com/bhavik-dreamz/react-page-builder-free)\""
   },
   "engines": {
