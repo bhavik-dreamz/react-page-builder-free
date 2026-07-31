@@ -19,6 +19,10 @@ coverage/
 .env.*
 !.env.example
 
+# Local agent/editor settings (may contain tokens)
+.claude/setting.local.json
+.claude/settings.local.json
+
 # Editor and OS files
 .vscode/
 .idea/
