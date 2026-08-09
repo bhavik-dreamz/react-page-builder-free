@@ -13,13 +13,14 @@
 
 **`react-page-builder-free`** is a free, open-source **React page builder**: a drag-and-drop visual editor built on Gutenberg blocks, plus an **SSR-safe renderer** for the public site. Drop it into **Next.js (App Router)**, **Remix**, or **Vite** — **no WordPress install required**.
 
-Build landing pages, marketing pages, and CMS-style content in React with a WYSIWYG block editor, then render the saved blocks to HTML on the server.
+Use it to build SEO-friendly home pages, product landing pages, contact pages, demo builder pages, and public-facing content pages that can be rendered server-side. The editor saves both HTML and JSON so the same page can be edited, previewed, and published with your own persistence.
 
 - 🧱 **Gutenberg block editor** in any React app — no WordPress, no PHP
 - 🖱️ **Drag-and-drop** blocks, inline rich text, device preview widths
 - ⚡ **SSR / RSC safe renderer** — `react-page-builder-free/renderer` never touches the DOM
 - 🔌 **Bring your own persistence** — `onSave` / `onLoad` props, any DB or API
 - 🎨 **Custom blocks & templates** from your own app
+- 🔎 **SEO-friendly page structure** for landing pages, product pages, and demo pages
 - 📦 **Free and MIT licensed**
 
 **[Live demo](https://react-block-builder.vercel.app/)** · Demo source: [`https://react-block-builder.vercel.app/`](https://react-block-builder.vercel.app/)

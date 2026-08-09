@@ -1,0 +1,141 @@
+.demo-home {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 6rem;
+  color: #102a43;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.demo-hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  border-radius: 2rem;
+  background: linear-gradient(180deg, rgba(41, 98, 255, 0.12), rgba(249, 250, 255, 0.9));
+  box-shadow: 0 40px 90px rgba(16, 42, 67, 0.08);
+}
+
+.demo-eyebrow {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1d4ed8;
+  background: rgba(59, 130, 246, 0.12);
+}
+
+.demo-hero h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 4vw, 4.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  color: #102a43;
+}
+
+.demo-subtitle {
+  margin: 1.5rem auto 2.5rem;
+  max-width: 42rem;
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: #334155;
+}
+
+.demo-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.demo-btn {
+  border: 1px solid #0f172a;
+  color: #0f172a;
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.demo-btn:hover {
+  transform: translateY(-1px);
+}
+
+.demo-btn--primary {
+  background: #0f172a;
+  color: white;
+  border-color: transparent;
+}
+
+.demo-btn--primary:hover {
+  background: #1e293b;
+}
+
+.demo-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.demo-feature-card {
+  padding: 1.75rem;
+  border-radius: 1.5rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+}
+
+.demo-feature-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.85rem;
+  font-size: 1.2rem;
+  color: #0f172a;
+}
+
+.demo-feature-card p {
+  margin: 0;
+  color: #475569;
+  line-height: 1.75;
+}
+
+.demo-details {
+  margin-top: 3rem;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.demo-details h2 {
+  margin-top: 0;
+  color: #0f172a;
+}
+
+.demo-details p {
+  margin: 0.75rem 0 0;
+  color: #475569;
+  line-height: 1.75;
+}
+
+@media (max-width: 640px) {
+  .demo-home {
+    padding: 3rem 1rem 4rem;
+  }
+
+  .demo-hero {
+    padding: 3rem 1.25rem;
+  }
+
+  .demo-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .demo-cta-row {
+    flex-direction: column;
+  }
+}
