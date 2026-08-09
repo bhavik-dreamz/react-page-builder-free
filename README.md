@@ -1,6 +1,5 @@
 # React Page Builder Free — drag-and-drop page builder for React
 
-<<<<<<< HEAD
 [![npm version](https://img.shields.io/npm/v/react-page-builder-free?color=cb3837&logo=npm)](https://www.npmjs.com/package/react-page-builder-free)
 [![license: MIT](https://img.shields.io/npm/l/react-page-builder-free?color=blue)](https://github.com/bhavik-dreamz/react-page-builder-free/blob/main/LICENSE)
 [![node](https://img.shields.io/node/v/react-page-builder-free?color=5FA04E&logo=node.js&logoColor=white)](https://nodejs.org)
@@ -11,11 +10,6 @@
      [![npm downloads](https://img.shields.io/npm/dm/react-page-builder-free)](https://www.npmjs.com/package/react-page-builder-free)
 -->
 
-=======
-[![npm version](https://img.shields.io/npm/v/react-page-builder-free.svg)](https://www.npmjs.com/package/react-page-builder-free)
-[![npm downloads](https://img.shields.io/npm/dm/react-page-builder-free.svg)](https://www.npmjs.com/package/react-page-builder-free)
-[![license](https://img.shields.io/npm/l/react-page-builder-free.svg)](LICENSE)
->>>>>>> 4fb37ad (Rename the plugins)
 
 **`react-page-builder-free`** is a free, open-source **React page builder**: a drag-and-drop visual editor built on Gutenberg blocks, plus an **SSR-safe renderer** for the public site. Drop it into **Next.js (App Router)**, **Remix**, or **Vite** — **no WordPress install required**.
 
