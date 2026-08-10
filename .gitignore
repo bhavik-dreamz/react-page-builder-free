@@ -39,3 +39,6 @@ dist-demo
 .env
 .env.local
 *.log
+
+# Local Node runtime used for CI/build in this repo
+.localnode/

@@ -3,27 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>React Page Builder Free — Visual Page Builder for React</title>
+    <title>Visual Page Builder — Build Beautiful Websites With Blocks</title>
     <meta
       name="description"
-      content="React Page Builder Free is a free, open-source visual page builder for React apps. Drag, drop, and publish SEO-friendly pages with an SSR-safe renderer for Next.js, Remix, and Vite."
+      content="Build responsive websites faster with a flexible visual page builder. Create and manage block-based pages with reusable content sections and rich editing."
     />
-    <link rel="canonical" href="https://react-block-builder.vercel.app/" />
+    <link rel="canonical" href="%VITE_PUBLIC_URL%/" />
+    <meta name="robots" content="index, follow" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="React Page Builder Free" />
-    <meta property="og:url" content="https://react-block-builder.vercel.app/" />
-    <meta property="og:title" content="React Page Builder Free — Visual Page Builder for React" />
+    <meta property="og:url" content="%VITE_PUBLIC_URL%/" />
+    <meta property="og:title" content="Visual Page Builder — Build Beautiful Websites With Blocks" />
     <meta
       property="og:description"
-      content="Build pages visually in React with a Gutenberg-inspired editor and SSR-safe renderer for Next.js, Remix, and Vite. Free and MIT licensed."
+      content="Build responsive websites faster with a flexible visual page builder. Create and manage block-based pages with reusable content sections and rich editing."
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="React Page Builder Free — Visual Page Builder for React" />
+    <meta name="twitter:title" content="Visual Page Builder — Build Beautiful Websites With Blocks" />
     <meta
       name="twitter:description"
-      content="Build pages visually in React with a Gutenberg-inspired editor and SSR-safe renderer for Next.js, Remix, and Vite. Free and MIT licensed."
+      content="Build responsive websites faster with a flexible visual page builder. Create and manage block-based pages with reusable content sections and rich editing."
     />
+    <meta name="theme-color" content="#312e81" />
+    <link rel="icon" href="%VITE_BASE_URL%favicon.svg" type="image/svg+xml" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -43,8 +46,8 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body data-page="home">
     <div id="root"></div>
-    <script type="module" src="/main.jsx"></script>
+    <script type="module" src="./main.jsx"></script>
   </body>
 </html>

@@ -12,10 +12,15 @@ import App from './App.jsx';
 
 initBlocks();
 
+function getPageKey() {
+  if (typeof document === 'undefined') return 'home';
+  return document.body.dataset.page || 'home';
+}
+
 function renderApp() {
   const rootEl = document.getElementById('root');
   if (!rootEl) return;
-  ReactDOM.createRoot(rootEl).render(<App />);
+  ReactDOM.createRoot(rootEl).render(<App page={getPageKey()} />);
 }
 
 if (document.readyState === 'loading') {

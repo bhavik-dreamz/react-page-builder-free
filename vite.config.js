@@ -22,11 +22,21 @@ function pkgAlias(subpath, srcFile) {
 
 export default defineConfig({
   root: resolve(repoRoot, 'examples/demo'),
+  base: process.env.VITE_BASE_URL || '/',
   envDir: repoRoot,
   plugins: [react()],
   build: {
     outDir: resolve(repoRoot, 'dist-demo'),
     emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: resolve(repoRoot, 'examples/demo/index.html'),
+        demo: resolve(repoRoot, 'examples/demo/demo/index.html'),
+        features: resolve(repoRoot, 'examples/demo/features/index.html'),
+        faq: resolve(repoRoot, 'examples/demo/faq/index.html'),
+        about: resolve(repoRoot, 'examples/demo/about/index.html'),
+      },
+    },
   },
   resolve: {
     dedupe: ['react', 'react-dom', '@wordpress/element'],
