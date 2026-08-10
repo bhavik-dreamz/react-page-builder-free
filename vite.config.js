@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 
 const repoRoot = __dirname;
 // Default to src aliases for browser safety. Opt in to dist aliases explicitly.
